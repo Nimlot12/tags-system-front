@@ -18,7 +18,7 @@ export default defineConfig(({ mode }) => {
     plugins: [react()],
     server: {
       port: app_port_front,
-      host: 'localhost',
+      host: '0.0.0.0',
       middlewareMode: false,
       proxy: {
         '/api': {
