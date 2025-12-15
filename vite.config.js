@@ -8,7 +8,8 @@ export default defineConfig(({ mode }) => {
   
   // Базовый URL бэкенда
   const target = env.VITE_API_BASE_URL || 'http://localhost:80'
-  
+  const app_port_front = env.FRONTEND_PORT || 3000  
+
   console.log('Vite config loaded:')
   console.log('  Mode:', mode)
   console.log('  API target:', target)
@@ -16,6 +17,9 @@ export default defineConfig(({ mode }) => {
   return {
     plugins: [react()],
     server: {
+      port: app_port_front,
+      host: 'localhost',
+      middlewareMode: false,
       proxy: {
         '/api': {
           target: target,
